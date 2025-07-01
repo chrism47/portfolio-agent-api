@@ -42,6 +42,10 @@ conversation_memory = f"system: {system_prompt}\n"
 class ChatRequest(BaseModel):
     message: str
 
+@app.get("/")
+async def read_root():
+    return {"message": "Hello people!"}
+
 @app.post("/chat")
 def chat_endpoint(request: ChatRequest):
     global conversation_memory
