@@ -25,7 +25,7 @@ with open('./system-prompt.md', 'r', encoding='utf-8') as file:
 # Model setup
 model = OpenAIServerModel(
     temperature=0.5,
-    model_id=os.environ["OPENROUTER_MODEL_NAME"],
+    model_id="deepseek/deepseek-chat-v3-0324:free",
     api_base=os.environ["OPENROUTER_API_BASE"],
     api_key=os.environ["OPENROUTER_API_KEY_1"],
 )
