@@ -1,0 +1,1 @@
+Here's the repo for the AI assistant embedded in my portfolio website. It's beginning as a simple chatbot with web search but will be growing in features.
