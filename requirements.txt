@@ -1,0 +1,4 @@
+fastapi
+uvicorn
+smolagents
+python-dotenv

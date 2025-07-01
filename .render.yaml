@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: smolagent-api
+    runtime: python
+    buildCommand: ""
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port 10000
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.10
+      - key: OPENROUTER_API_KEY
+        value: your-key-here
+      - key: OPENROUTER_MODEL_NAME
+        value: your-model-id
+      - key: OPENROUTER_API_BASE
+        value: https://openrouter.ai/api/v1
