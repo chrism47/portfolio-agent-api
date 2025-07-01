@@ -1,8 +1,9 @@
-from fastapi import FastAPI, Request
+from fastapi import FastAPI, Request, Response
 from pydantic import BaseModel
 from smolagents import CodeAgent, OpenAIServerModel, FinalAnswerTool, DuckDuckGoSearchTool
 from fastapi.middleware.cors import CORSMiddleware
 import os
+
 
 
 # FastAPI setup
@@ -46,6 +47,10 @@ class ChatRequest(BaseModel):
 async def read_root():
     return {"message": "Hello people!"}
 
+@app.head("/")
+async def head_root():
+    return Response(status_code=200)
+
 @app.post("/chat")
 def chat_endpoint(request: ChatRequest):
     global conversation_memory
@@ -63,3 +68,4 @@ def chat_endpoint(request: ChatRequest):
     conversation_memory += f"assistant: {reply}\n"
 
     return {"reply": reply}
+
