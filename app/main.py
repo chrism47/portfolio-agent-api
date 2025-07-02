@@ -14,7 +14,7 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=["https://www.moultonc.dev"],  # Replace with your domain in production
     allow_credentials=True,
-    allow_methods=["*"],
+    allow_methods=["POST", "GET"],
     allow_headers=["Content-Type", "Authorization"],
 )
 
