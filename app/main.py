@@ -32,10 +32,11 @@ model = OpenAIServerModel(
 
 # Agent setup
 agent = CodeAgent(
-    
+    max_steps=2,
     tools=[DuckDuckGoSearchTool(), FinalAnswerTool()],
     model=model,
     stream_outputs=False,
+    
 )
 
 # In-memory session chat
