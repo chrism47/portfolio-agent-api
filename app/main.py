@@ -10,7 +10,7 @@ import os
 app = FastAPI()
 
 origins = [
-    "https://www.moultonc.dev",
+    "https://www.moultonc.dev/a-gent/chat",
     "http://localhost:5000",
     "http://127.0.0.1:5000"
 ]
