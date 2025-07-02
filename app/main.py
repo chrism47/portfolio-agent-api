@@ -11,6 +11,9 @@ app = FastAPI()
 
 origins = [
     "https://www.moultonc.dev/a-gent/chat",
+    "https://moultonc.dev/a-gent/chat",
+    "http://moultonc.dev",
+    "http://www.moultonc.dev",
     "http://localhost:5000",
     "http://127.0.0.1:5000"
 ]
