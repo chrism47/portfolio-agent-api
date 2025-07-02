@@ -9,23 +9,23 @@ import os
 # FastAPI setup
 app = FastAPI()
 
-origins = [
+
+# CORS for frontend access
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
     "https://www.moultonc.dev/a-gent/chat",
     "https://moultonc.dev/a-gent/chat",
     "http://moultonc.dev",
     "http://www.moultonc.dev",
     "http://localhost:5000",
     "http://127.0.0.1:5000"
-]
-
-# CORS for frontend access
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=origins,  
+],  
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
 
 # Load system prompt
 with open('./system-prompt.md', 'r', encoding='utf-8') as file:
@@ -84,3 +84,8 @@ def chat_endpoint(request: ChatRequest):
 
     return {"reply": reply}
 
+@app.middleware("http")
+async def log_request(request: Request, call_next):
+    print(f"↪ Incoming request: {request.method} {request.url}")
+    response = await call_next(request)
+    return response
