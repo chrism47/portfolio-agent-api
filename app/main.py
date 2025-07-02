@@ -12,10 +12,10 @@ app = FastAPI()
 # CORS for frontend access
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["www.moultonc.dev"],  # Replace with your domain in production
+    allow_origins=["https://www.moultonc.dev"],  # Replace with your domain in production
     allow_credentials=True,
     allow_methods=["*"],
-    allow_headers=["*"],
+    allow_headers=["Content-Type", "Authorization"],
 )
 
 # Load system prompt
