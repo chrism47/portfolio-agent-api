@@ -12,7 +12,7 @@ app = FastAPI()
 # CORS for frontend access
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Replace with your domain in production
+    allow_origins=["www.moultonc.dev"],  # Replace with your domain in production
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -32,6 +32,7 @@ model = OpenAIServerModel(
 
 # Agent setup
 agent = CodeAgent(
+    
     tools=[DuckDuckGoSearchTool(), FinalAnswerTool()],
     model=model,
     stream_outputs=False,
