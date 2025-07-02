@@ -9,10 +9,16 @@ import os
 # FastAPI setup
 app = FastAPI()
 
+origins = [
+    "https://www.moultonc.dev",
+    "http://localhost:5000",
+    "http://127.0.0.1:5000"
+]
+
 # CORS for frontend access
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://www.moultonc.dev"],  # Replace with your domain in production
+    allow_origins=origins,  
     allow_credentials=True,
     allow_methods=["POST", "GET"],
     allow_headers=["Content-Type", "Authorization"],
@@ -32,11 +38,12 @@ model = OpenAIServerModel(
 
 # Agent setup
 agent = CodeAgent(
-    max_steps=2,
-    tools=[DuckDuckGoSearchTool(), FinalAnswerTool()],
+    tools=[
+        DuckDuckGoSearchTool(), 
+        FinalAnswerTool()
+        ],
     model=model,
     stream_outputs=False,
-    
 )
 
 # In-memory session chat
@@ -61,7 +68,10 @@ def chat_endpoint(request: ChatRequest):
     conversation_memory += f"user: {request.message}\n"
 
     # Run agent
-    response = agent.run(task=conversation_memory, max_steps=3)
+    response = agent.run(
+        task=conversation_memory, 
+        max_steps=2
+        )
 
     # Extract clean reply
     reply = response if isinstance(response, str) else getattr(response, "final_answer", str(response))
