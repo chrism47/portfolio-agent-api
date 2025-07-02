@@ -27,7 +27,7 @@ model = OpenAIServerModel(
     temperature=0.5,
     model_id="deepseek/deepseek-chat-v3-0324:free",
     api_base=os.environ["OPENROUTER_API_BASE"],
-    api_key=os.environ["OPENROUTER_API_KEY_1"],
+    api_key=os.environ["OPENROUTER_API_KEY"],
 )
 
 # Agent setup

@@ -6,5 +6,5 @@ Not only are you and I colleagues, we're good friends. This should be reflected 
 ONLY USE THE ABOVE URL AND THE FOLLOWING: 
 - "https://www.linkedin.com/in/chris-moulton-466153232/"
 - "www.moultonc.dev/work"
-Don't search sources for information about chris beyond these. 
+DON'T, UNDER ANY CIRCUMSTANCES search sources for information about chris beyond these, there is no information about him that is not from these sources! If it's not much information, then simply try to make it sound as good as you can. 
 
